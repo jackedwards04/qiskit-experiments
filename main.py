@@ -1,4 +1,6 @@
+print("importing packages")
 import numpy as np
+
 from qiskit import(
   QuantumCircuit,
   execute,
@@ -8,6 +10,7 @@ from qiskit.visualization import plot_histogram
 # Use Aer's qasm_simulator
 simulator = Aer.get_backend('qasm_simulator')
 
+print("initializing circuit")
 # Create a Quantum Circuit acting on the q register
 circuit = QuantumCircuit(2, 2)
 
@@ -20,6 +23,7 @@ circuit.cx(0, 1)
 # Map the quantum measurement to the classical bits
 circuit.measure([0,1], [0,1])
 
+print("executing circuit")
 # Execute the circuit on the qasm simulator
 job = execute(circuit, simulator, shots=1000)
 
